@@ -1,0 +1,80 @@
+<%= form_for [@job_position.company, @job_position] do |f| %>
+  <% if @job_position.errors.any? %>
+  <div id="error_explanation">
+  <h2><%= pluralize(@job_position.errors.count, "error") %> *Os campos são obrigatórios!</h2>
+
+  <ul>
+    <% @job_position.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+  <% end %>
+
+<p>
+  <div class="field">
+    <label >Título*:</label>
+    <%= f.text_field :title, class:"form-control"%>
+  </div>
+</p>
+
+<p>
+  <div class="field">
+    <label >Descrição*:</label>
+    <%= f.text_field :description, class:"form-control"%>
+  </div>
+</p>
+
+<p>
+  <div class="field">
+    <label >Data de Expiração*:</label>
+    <%= f.date_field :expiration_date, min:@min_expiration, max:@max_expiration, class:"form-control"%>
+  </div>
+</p>
+
+<p>
+  <div class="field">
+    <label >Nome:</label>
+    <%= f.text_field :name, class:"form-control"%>
+  </div>
+</p>
+
+<p>
+  <div class="field">
+    <label>Status do Anúncio</label>
+    <%= f.select(:job_status, options_for_select([['Ativa', "Ativa"], ['Desativada', "Desativada"],['Cancelada', "Cancelada"]])) %>
+  </div>
+</p> 
+
+<p>
+  <div class="field">
+    <label>Descrição da Vaga</label>
+    <%= collection_select(:description, :id, JobCategory.all, :description, :id) %>
+  </div> 
+</p>
+
+
+  <div class="field">
+    <label>Categoria da Vaga</label>
+    <%= f.collection_select(:job_category, JobCategory.all, :id, :description, {prompt: "Selecione"}) %>
+  </div>
+
+
+<p> 
+  <div class="field">
+    <label>Empresa</label>
+    <strong><%= @job_position.company.fantasy_name %></strong>
+  </div>
+</p>
+
+<p>
+  <div class="field">
+    <label >Vaga em Destaque</label>
+    <%= f.check_box :featured %>
+  </div>
+</p>
+
+<p>
+  <button type="submit">Salvar</button>
+</p>
+  <% end %>
