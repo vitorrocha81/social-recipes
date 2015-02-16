@@ -1,2 +1,10 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1> Receitas </h1>
+
+<p> Nome: <%= @recipe.name %> </p>
+<p> Tipo de cozinha: <%= @recipe.type_kitchen %> </p>
+<p> Preferência: <%= @recipe.preference %> </p>
+<p> Serve <%= @recipe.serves_people %> pessoas. </p>
+<p> Tempo de preparo: <%= @time_preper %> </p>
+<p> Dificuldade: <%= @recipe.level %> </p>
+<p> Ingredientes: <%= @recipe.ingredients %> </p>
+<p> Passo a passo: <%= @recipe.steps %> </p>
