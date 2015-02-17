@@ -6,3 +6,22 @@
 <p>Facebook: <%= @user.facebook %></p>
 <p>Twitter: <%= @user.twitter %></p>
 <p>Cozinha Preferida: <%= @user.favorite_cuisine %></p>
+
+
+<hr>
+<h2>Suas últimas receitas:</h2>
+
+<% @user.recipe.each do |r| %>
+<%= image_tag r.image.url(:medium) %>
+<p> Nome: <%=  link_to r.name, r %> </p>
+<p> Tipo de cozinha: <%= r.type_kitchen %> </p>
+<p> Preferência: <%= r.preference %> </p>
+<p> Serve <%= r.serves_people %> pessoas. </p>
+<p> Tempo de preparo: <%= r.time_preper %> </p>
+<p> Dificuldade: <%= r.level %> </p>
+<p> Ingredientes: <%= r.ingredients %> </p>
+<p> Passo a passo: <%= r.steps %> </p>
+
+<br>
+
+<% end %>
