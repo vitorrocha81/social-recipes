@@ -1,5 +1,6 @@
 <h1> Receitas </h1>
 
+<%= image_tag @recipe.image.url(:large) %>
 <p> Nome: <%= @recipe.name %> </p>
 <p> Tipo de cozinha: <%= @recipe.type_kitchen %> </p>
 <p> Preferência: <%= @recipe.preference %> </p>

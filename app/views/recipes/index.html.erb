@@ -1,7 +1,7 @@
 <h1>Últimas Receitas</h1>
 <% @recipes.each do |r| %>
-
-<p> Nome: <%= r.name %> </p>
+<%= image_tag r.image.url(:medium) %>
+<p> Nome: <%=  link_to r.name, r %> </p>
 <p> Tipo de cozinha: <%= r.type_kitchen %> </p>
 <p> Preferência: <%= r.preference %> </p>
 <p> Serve <%= r.serves_people %> pessoas. </p>

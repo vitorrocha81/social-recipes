@@ -49,7 +49,7 @@
 
 <div class="field">
   <label >Nível de dificuldade:</label>
-   <%= f.select(:level, options_for_select([['Fácil', "Fácil"], ['Médio', "Médio"],['Difícil', "Difícil"]])) %>
+   <%= f.select(:level, options_for_select([['Fácil', "Fácil"], ['Médio', "Médio"], ['Difícil', "Difícil"]])) %>
 </div>
 
 <p>
@@ -65,7 +65,11 @@
     <%= f.text_area :steps, class:"form-control"%>
   </div>
 </p>
- 
+
+<p>
+  <%= f.file_field :image %>
+</p>
+
 <p>
   <button type="submit">Salvar</button>
 </p>
