@@ -20,7 +20,7 @@ end
 
 def show
   @recipe = Recipe.find(params[:id])
-  @cuisine = @recipe.cuisine
+  @cuisine = Cuisine.find(params[:id])
 end
 
 def edit
