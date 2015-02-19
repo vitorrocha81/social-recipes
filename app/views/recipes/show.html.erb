@@ -2,7 +2,7 @@
 
 <%= image_tag @recipe.image.url(:large) %>
 <p> Nome: <%= @recipe.name %> </p>
-<p> Tipo de cozinha: <%= @recipe.type_kitchen %> </p>
+<p> Tipo de cozinha: <%= @cuisine.cuisine  %> </p>
 <p> Preferência: <%= @recipe.preference %> </p>
 <p> Serve <%= @recipe.serves_people %> pessoas. </p>
 <p> Tempo de preparo: <%= @time_preper %> </p>

@@ -6,7 +6,7 @@ before_action :authenticate_admin!, only: [:create, :new]
   end
 
   def show
-    @cuisine = Cuisine.find(params[:id]) 
+    @cuisine = Cuisine.find(params[:id])
   end
 
   def new

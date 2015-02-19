@@ -21,7 +21,7 @@
 <p>
   <div class="field">
     <label >Tipo de Cozinha:</label>
-    <%= f.collection_select(:cuisine, Cuisine.all, :id, :cuisine, {prompt: "Selecione"}) %>
+    <%= f.collection_select(:cuisine_id, Cuisine.all, :id, :cuisine, {prompt: "Selecione"}) %>
   </div>
 </p>
 
