@@ -21,7 +21,7 @@
 <p>
   <div class="field">
     <label >Tipo de Cozinha:</label>
-    <%= f.text_field :type_kitchen, class:"form-control"%>
+    <%= f.collection_select(:cuisine, Cuisine.all, :id, :cuisine, {prompt: "Selecione"}) %>
   </div>
 </p>
 

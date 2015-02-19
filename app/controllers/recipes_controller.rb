@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-before_action :authenticate_user!, only: [:create]
+before_action :authenticate_user!, only: [:create, :new]
 
 def index
   @recipes = Recipe.all
@@ -37,6 +37,6 @@ end
 
 private
   def recipe_params
-    params.require(:recipe).permit(:name, :type_kitchen, :preference, :serves_people, :time_preper, :level, :ingredients, :steps, :image) 
+    params.require(:recipe).permit(:name, :cuisine, :preference, :serves_people, :time_preper, :level, :ingredients, :steps, :image) 
   end
 end

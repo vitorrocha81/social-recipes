@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219000112) do
+ActiveRecord::Schema.define(version: 20150219034401) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20150219000112) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
+  create_table "cuisines", force: :cascade do |t|
+    t.string   "cuisine"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "admin_id"
+  end
+
+  add_index "cuisines", ["admin_id"], name: "index_cuisines_on_admin_id"
+
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
     t.string   "type_kitchen"
@@ -47,8 +56,10 @@ ActiveRecord::Schema.define(version: 20150219000112) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.integer  "cuisine_id"
   end
 
+  add_index "recipes", ["cuisine_id"], name: "index_recipes_on_cuisine_id"
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
 
   create_table "users", force: :cascade do |t|

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @recipe = @recipe.user_id
   end
 
   def edit
@@ -25,6 +24,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :cidade, :email, :facebook, :twitter, :favorite_cuisine) 
+    params.require(:user).permit(:name, :cidade, :email, :facebook, :twitter, :favorite_cuisine, :password_confirmation, :password) 
   end
 end
