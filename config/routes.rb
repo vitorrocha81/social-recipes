@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :recipes
   resources :users
   resources :cuisines, only: [:new, :create, :show, :edit, :update]
-
+  resources :food_preferences, only: [:new, :create, :show, :edit, :update]
+  
   root 'recipes#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
