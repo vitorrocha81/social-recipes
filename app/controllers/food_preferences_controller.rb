@@ -23,7 +23,7 @@ class FoodPreferencesController < ApplicationController
  end
 
  def edit
-  @foodpref = FoodPreference.find([:id])
+  @foodpref = FoodPreference.find(params[:id])
  end
 
  def update
