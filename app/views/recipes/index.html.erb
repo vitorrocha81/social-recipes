@@ -2,7 +2,7 @@
 <% @recipes.each do |r| %>
 <%= image_tag r.image.url(:medium) %>
 <p> Nome: <%=  link_to r.name, r %> </p>
-<p> Tipo de cozinha: <%= r.cuisine %> </p>
+<p> Tipo de cozinha: <%= r.cuisine.cuisine %> </p>
 <p> Preferência: <%= r.preference %> </p>
 <p> Serve <%= r.serves_people %> pessoas. </p>
 <p> Tempo de preparo: <%= r.time_preper %> </p>

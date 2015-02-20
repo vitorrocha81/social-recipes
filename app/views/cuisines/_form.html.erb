@@ -1,0 +1,25 @@
+<%= form_for [@cuisine] do |f| %>
+  <% if @cuisine.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(@cuisine.errors.count, "error") %> *Os campos são obrigatórios!</h2>
+
+    <ul>
+      <% @cuisine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  <div class="field">
+    <label >Tipo de Cozinha:</label>
+    <%= f.text_field :cuisine, class:"form-control"%>
+  </div>
+</p>
+
+<p>
+  <button type="submit">Salvar</button>
+</p>
+
+<% end %>

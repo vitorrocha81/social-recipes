@@ -6,3 +6,10 @@
 <p>Facebook: <%= @user.facebook %></p>
 <p>Twitter: <%= @user.twitter %></p>
 <p>Cozinha Preferida: <%= @user.favorite_cuisine %></p>
+
+<h2> Receitas do Usuário </h2>
+
+<% @user.recipes.each do |r|  %>
+<p><%=  r.cuisine.cuisine %><p>
+<p><%= r.name %></p>
+<% end %>
