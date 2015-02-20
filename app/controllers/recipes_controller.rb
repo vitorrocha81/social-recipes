@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-before_action :authenticate_user!, only: [:create, :new]
+before_action :authenticate_user!, only: [:create, :new, :show, :edit]
 
 def index
   @recipes = Recipe.all
@@ -20,7 +20,6 @@ end
 
 def show
   @recipe = Recipe.find(params[:id])
-  @cuisine = Cuisine.find(params[:id])
 end
 
 def edit

@@ -1,5 +1,5 @@
 class CuisinesController < ApplicationController
-before_action :authenticate_admin!, only: [:create, :new]
+before_action :authenticate_admin!, only: [:create, :new, :edit]
 
   def index
     @cuisine = Cuisine.all
@@ -19,6 +19,18 @@ before_action :authenticate_admin!, only: [:create, :new]
       redirect_to @cuisine
     else
       render "new"
+    end
+  end
+  def edit
+    @cuisine = Cuisine.find(params[:id])
+  end
+
+  def update
+    @cuisine = Cuisine.find(params[:id])
+    if @cuisine.update(cuisine_params)
+    redirect_to @cuisine
+    else
+      render "edit"
     end
   end
 
