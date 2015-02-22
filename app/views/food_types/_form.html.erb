@@ -1,0 +1,24 @@
+<%= form_for [@foodtype] do |f| %>
+  <% if @foodtype.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(@foodtype.erros.count, "error") %> *Por favor confira os campos obrigatórios!</h2>
+    <ul>
+      <% @foodtype.erros.full_messages.each do |message| %>
+        <li> <%= message %></li>
+      <% end %>
+    </ul>  
+  </div>  
+<% end %>
+
+<p>
+  <div class="field">
+    <label >Tipos de prato:</label>
+    <%= f.text_field :name, class:"form-control"%>
+  </div>
+</p>
+
+<p>
+  <button type="submit">Salvar</button>
+</p>
+
+<% end %>

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   
   resources :recipes
   resources :users
-  resources :cuisines, only: [:new, :create, :show, :edit, :update]
+  resources :cuisines, only:         [:new, :create, :show, :edit, :update]
   resources :food_preferences, only: [:new, :create, :show, :edit, :update]
+  resources :food_types, only:       [:new, :create, :show, :edit, :update]
   
   root 'recipes#index'
   

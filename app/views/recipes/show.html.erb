@@ -3,9 +3,10 @@
 <%= image_tag @recipe.image.url(:large) %>
 <p> Nome: <%= @recipe.name %> </p>
 <p> Tipo de cozinha: <%= @recipe.cuisine.cuisine %> </p>
-<p> Preferência: <%= @recipe.preference %> </p>
+<p> Tipo do prato: <%= @recipe.food_type.name %> </p>
+<p> Preferência por: <%= @recipe.food_preference.name %> </p>
 <p> Serve <%= @recipe.serves_people %> pessoas. </p>
-<p> Tempo de preparo: <%= @recipe.time_preper %> </p>
+<p> Tempo de preparo: <%= @recipe.time_preper %> minutos. </p>
 <p> Dificuldade: <%= @recipe.level %> </p>
 <p> Ingredientes: <%= @recipe.ingredients %> </p>
 <p> Passo a passo: <%= @recipe.steps %> </p>

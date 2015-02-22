@@ -27,8 +27,15 @@
 
 <p>
   <div class="field">
-    <label >Preferência:</label>
-    <%= f.text_field :preference, class:"form-control"%>
+    <label >Comida Preferida:</label>
+    <%= f.collection_select(:food_preference_id, FoodPreference.all, :id, :name, {prompt: "Selecione"}) %>
+  </div>
+</p>
+
+<p>
+  <div class="field">
+    <label >Tipo de Comida:</label>
+    <%= f.collection_select(:food_type_id, FoodType.all, :id, :name, {prompt: "Selecione"}) %>
   </div>
 </p>
 

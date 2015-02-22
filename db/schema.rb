@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220183910) do
+ActiveRecord::Schema.define(version: 20150220205859) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,12 +44,24 @@ ActiveRecord::Schema.define(version: 20150220183910) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "admin_id"
   end
+
+  add_index "food_preferences", ["admin_id"], name: "index_food_preferences_on_admin_id"
+
+  create_table "food_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "admin_id"
+  end
+
+  add_index "food_types", ["admin_id"], name: "index_food_types_on_admin_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
-    t.string   "type_kitchen"
-    t.string   "preference"
+    t.string   "food_type"
+    t.string   "food_preference"
     t.integer  "serves_people"
     t.integer  "time_preper"
     t.string   "level"
@@ -63,9 +75,13 @@ ActiveRecord::Schema.define(version: 20150220183910) do
     t.datetime "image_updated_at"
     t.integer  "user_id"
     t.integer  "cuisine_id"
+    t.integer  "food_type_id"
+    t.integer  "food_preference_id"
   end
 
   add_index "recipes", ["cuisine_id"], name: "index_recipes_on_cuisine_id"
+  add_index "recipes", ["food_preference_id"], name: "index_recipes_on_food_preference_id"
+  add_index "recipes", ["food_type_id"], name: "index_recipes_on_food_type_id"
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id"
 
   create_table "users", force: :cascade do |t|
