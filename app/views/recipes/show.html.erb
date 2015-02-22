@@ -1,12 +1,19 @@
 <h1> Receitas </h1>
 
-<%= image_tag @recipe.image.url(:large) %>
-<p> Nome: <%= @recipe.name %> </p>
-<p> Tipo de cozinha: <%= @recipe.cuisine.cuisine %> </p>
-<p> Tipo do prato: <%= @recipe.food_type.name %> </p>
-<p> Preferência por: <%= @recipe.food_preference.name %> </p>
-<p> Serve <%= @recipe.serves_people %> pessoas. </p>
-<p> Tempo de preparo: <%= @recipe.time_preper %> minutos. </p>
-<p> Dificuldade: <%= @recipe.level %> </p>
-<p> Ingredientes: <%= @recipe.ingredients %> </p>
-<p> Passo a passo: <%= @recipe.steps %> </p>
+<p><%= image_tag @recipe.image.url(:large) %></p>
+<strong>Nome da receita: </strong> <%= @recipe.name %> </p>
+<p><strong>Cozinha: </strong><%= @recipe.cuisine.cuisine %> </p>
+<p><strong>Tipo de prato: </strong><%= @recipe.food_type.name %> </p>
+<p><strong>Preferência de comida: </strong> <%= @recipe.food_preference.name %> </p>
+<p> Serve<strong> <%= @recipe.serves_people %> </strong> pessoas. </p>
+<p><strong>Tempo de preparo:</strong> <%= @recipe.time_preper %> minutos. </p>
+<p><strong>Nível de dificuldade:</strong> <%= @recipe.level %> </p>
+<p><strong>Ingredientes:</strong></p>
+<%= @recipe.ingredients.split("\n").each do |i| %>
+  <p> - <%= i %> <p>
+  <% end %> %>
+
+<p><strong>Passo a passo:</strong></p>
+<p> Passo a passo: <%= @recipe.steps.split("\n").each do |s| %>
+  <p> - <%= s %> </p>
+ <% end %>
