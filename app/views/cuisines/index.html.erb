@@ -1,0 +1,20 @@
+<h1>Receitas por tipo de cozinha</h1>
+<% @recipe.cousine.each do |r| %>
+<%= image_tag r.image.url(:medium) %>
+<p><strong>Nome da receita: </strong><%=  link_to r.name, r %> </p>
+<p><strong>Cozinha: </strong><%= r.cuisine.cuisine %></p>
+<p><strong>Tipo de prato: </strong><%= r.food_type.name %></p>
+<p><strong>Preferência de comida: </strong> <%= r.food_preference.name %></p>
+<p>Serve <strong> <%= r.serves_people %></strong> pessoas.</p>
+<p><strong>Tempo de preparo:</strong> <%= r.time_preper %> minutos</p>
+<p><strong>Nível de dificuldade:</strong> <%= r.level %></p>
+ <p><strong>Ingredientes:</strong></p>
+ <% r.ingredients.split("\n").each do |i| %>
+  <p> - <%= i %> <p>
+  <% end %>
+<p><strong>Passo a passo:</strong></p>
+ <% r.steps.split("\n").each do |s| %>
+  <p> - <%= s %> </p>
+ <% end %>
+<hr> 
+<% end %>

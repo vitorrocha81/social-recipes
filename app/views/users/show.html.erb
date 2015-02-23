@@ -10,6 +10,22 @@
 <h2> Receitas do Usuário </h2>
 
 <% @user.recipes.each do |r|  %>
-<p><%=  r.cuisine.cuisine %><p>
-<p><%= r.name %></p>
+
+<p>Nome da Receita: <%= r.name %></p>
+<p>Cozinha: <%=  r.cuisine.cuisine %><p>
+<p>Tipo de Comida: <%= r.food_type %></p>
+<P>Prefência de Comida: <%= r.food_preference %></P>
+<p>Quantas pessoas serve: <%= r.serves_people %></p> 
+<p>Tempo de Preparo: <%= r.time_preper %> minutos</p>
+<p>Nível de Dificuldade:<%= r.level %></p>
+<p><strong>Ingredientes:</strong></p>
+<% r.ingredients.split("\n").each do |i| %>
+  <p> - <%= i %> <p>
+  <% end %>
+
+<p><strong>Passo a passo:</strong></p>
+<p> Passo a passo: <% r.steps.split("\n").each do |s| %>
+  <p> - <%= s %> </p>
+ <% end %>
+
 <% end %>
